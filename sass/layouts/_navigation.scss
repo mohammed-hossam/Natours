@@ -1,0 +1,170 @@
+.navigation {
+  &__checkbox {
+    display: none;
+    &:checked ~ .navigation__background {
+      transform: scale(85);
+    }
+    &:checked ~ .navigation__nav {
+      transform: translateX(0);
+    }
+  }
+
+  &__button {
+    // border: 1px solid red;
+    background-color: white;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    position: fixed;
+    top: 4em;
+    right: 4em;
+    z-index: 4;
+    // for menuicon
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include respond(phone) {
+      //max-width 600px
+      top: 2.5em;
+      right: 2.4em;
+      height: 6vh;
+      width: 6vh;
+    }
+    @include respond(port) {
+      //max-width 900px
+      top: 2em;
+      right: 2em;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__background {
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    position: fixed;
+    top: 4.5em;
+    right: 4.5em;
+    z-index: 2;
+    // transform: scale(75);
+    transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    @include respond(phone) {
+      //max-width 600px
+      top: 2.5em;
+      right: 2.4em;
+      height: 3vh;
+      width: 3vh;
+    }
+    @include respond(port) {
+      //max-width 900px
+      top: 2.5em;
+      right: 2.4em;
+    }
+  }
+
+  &__nav {
+    // border: 2px dotted darkviolet;
+    width: 100%;
+    height: 100vh;
+    // hena 3shan wa5d postion fixed el percantage btt7sb mn el viewport
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-300em);
+    transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &__list {
+    // border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    // border: 2px solid firebrick;
+    margin-bottom: 1em;
+    list-style: none;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 300;
+      padding: 0.2em 1em;
+      text-decoration: none;
+      color: white;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        white 50%
+      );
+      background-size: 220%;
+      transition: all 0.4s;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+    &:hover {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(-0.4em);
+    }
+  }
+
+  // icon
+  &__icon {
+    position: relative;
+    &,
+    &::before,
+    &::after {
+      display: block;
+      background-color: black;
+      width: 4vh;
+      height: 2px;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    &::after {
+      top: -0.45em;
+    }
+    &::before {
+      top: 0.45em;
+    }
+  }
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

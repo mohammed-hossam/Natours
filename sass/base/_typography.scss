@@ -1,0 +1,88 @@
+body {
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.headerPrimary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*deh 3shan tzbt el animation eno my3mlsh shaking kda shwia*/
+  margin-bottom: 2em;
+  &--main {
+    display: block;
+    font-weight: 400;
+    font-size: 3.8rem;
+    letter-spacing: 2.1rem;
+
+    animation-name: moveMain;
+    animation-duration: 1s;
+    animation-delay: 0; /* dah by2ol el animation hy7sl emta moomkn2 5le ybd2 mt25r shwia*/
+    animation-iteration-count: 1; /* el animation hy7sl kam mara*/
+    animation-timing-function: ease-out;
+    @include respond(phone) {
+      //max-width 600px
+      letter-spacing: 1.2rem;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1.1rem;
+    /* letter-spacing: heya heya 16px ele aya mn el root html element by default; */
+    animation-name: moveSub;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 2.19rem;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+  @include respond(port) {
+    //max-width 900px
+    font-size: 1.9rem;
+  }
+  @include respond(phone) {
+    //max-width 600px
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.31rem 0.62rem 1.24rem rgba(black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.paragraph {
+  font-size: 1rem;
+
+  &:not(:last-of-type) {
+    margin-bottom: 2em;
+  }
+}
+
+.col-1-of-2 {
+  //   border: 2px solid blue;
+  width: 50%;
+}
