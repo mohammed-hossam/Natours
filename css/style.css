@@ -461,7 +461,7 @@ body {
 }
 
 .card {
-  height: 30em;
+  border: 2px solid blue;
   width: 100%;
   perspective: 150rem;
 }
@@ -472,7 +472,7 @@ body {
   }
 }
 .card__side {
-  height: 30em;
+  border: 2px solid red;
   width: 100%;
   transition: all 0.9s ease;
   position: absolute;
